@@ -9,7 +9,7 @@ Setting Up Your Machine
 At this point, everyone should have git setup properly. [Follow the instructions](https://github.com/HampshireCS/CS112-Spring2012/wiki/Instructions) for running installing python/pygame on your machine. Then pull this assignment down with `git pull course master` and run `mystery_game.py`.
 
 
-The mystery game is _________.
+The mystery game is othello.
 
 
 Fill in your answer and run the turnin script.
