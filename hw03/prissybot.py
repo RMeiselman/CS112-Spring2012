@@ -8,7 +8,7 @@ mood=raw_input("Please enter your mood: ")
 print "It's nice to know that you're",mood
 
 print "How much swag do you have, ",name
-swag=raw_input("Please enter an amount of swag")
+swag=raw_input("Please enter an amount of swag: ")
 print "Yo swag ain't shit, dog"
 
 print "yo dog I'ma reason with you right now. I don't like your face"

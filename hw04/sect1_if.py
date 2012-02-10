@@ -4,24 +4,34 @@ from hwtools import *
 print "Section 1:  If Statements"
 print "-----------------------------"
 
-# 1.  Is n even or odd?
 n = raw_input("Enter a number: ")
 n = int(n)
+if n % 2 == 0 :
+    print n, "is an even number"
+else:
+    print n, "is an odd number"
+    print n,"*",2,"=",n*2
 
-print "1.", __
-
-
-# 2. If n is odd, double it
-print "2.", n
-
-
-# 3. If n is evenly divisible by 3, add four
-print "3.", n
-
-
-# 4. What is grade's letter value (eg. 90-100)
+if n % 3 == 0 :
+    print n+4
+else :
+    print n
+    
 grade = raw_input("Enter a grade [0-100]: ")
 grade = int(grade)
 
-print "4.", __
+if grade >= 90:
+    letter = "A"
+elif grade >= 80:
+    letter = "B"
+elif grade >= 70:
+    letter = "C"
+elif grade >= 60:
+    letter = "D"
+else:
+    letter = "F"
+print letter
+
+    
+    
 
