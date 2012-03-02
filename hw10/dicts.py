@@ -17,7 +17,16 @@ manipulate python dictionaries.
 def freq(data):
     "calculate the frequency for each value in data"
 
+    freq = {}
 
+    for value in data:
+
+        if not value in freq:
+
+            freq[value] = 0
+        freq[value] += 1
+
+    return freq
 
 # 2. Movie Reviews
 #      Write two functions to help with scoring a movie.
@@ -42,31 +51,24 @@ movies = {}
 def score(title, value):
     "register the score for a given movie out of 5"
 
+    if not title in movies:
+        movies[title] = []
+
+    movies[title].append(value)
 
 def avg_score(title):
     "return the average score for a given movie"
+    
+    total = float(0)
+
+    if not title in movies:
+        return None
+
+    ## Averaging the movie score. ##
+    for value in movies[title]:
+        total += value
+
+    return total / len (movies[title])
 
 
-
-# 3. parse_csv (Advanced)
-#        Takes an input string and spits back a list of comma
-#        separated values (csv) entries.  Hint, check the zip
-#        and dict functions.
-#
-#        The point of this is to create your own parser, not to
-#        use pythons builtin 'csv' library.
-#
-#           >>> csv = """
-#           name,age,email
-#           Foo, 24, foo@example.com
-#           Bar ,22 ,bar@example.com
-#           Baz, 20 , baz@gmail.com
-#           """
-#           >>> parse_csv(csv)
-#           [ { "name": "Foo", "age": "24", "email": "foo@example.com" },
-#             { "name": "Bar", "age": "22", "email": "bar@example.com" },
-#             { "name": "Baz", "age": "20", "email": "baz@example.com" } ]            
-
-def parse_csv(data):
-    "parses a csv file into a list of dictionaries"
-
+## I used to have problems with trying to define variables within the functions themselves, but I think I'm kind of getting the idea with how these function homeworks go. I still don't quite understand the testing program, when something goes wrong it is hard to tell exactly what went wrong. ##
