@@ -55,3 +55,23 @@ Tiled puzzle sidescroller
  * saved state
  * level loading
  * player equipment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Idea #1:
+A text-based adventure game that grips the player with humor and an interesting story. Ideally it would be a text-based game reminiscent of browser game Kingdom of Loathing.
+	Technical Hurdles:
+	-Would it be in Pygame, or just in the Python window?
+	-Saved States
+	-Use of objects/equipment
+Idea #2:
+A rogue-like dungeon crawler(the genre heavily influenced by NetHack) with random encounters and items. This is perhaps too difficult, but if it's possible with my current python/pygame knowledge, I'd be very excited to work on this game.
+	Technical Hurdles:
+	-Random maps/enemies/items
+	-Level loading
+	-Player equipment
+Idea #3: 
+An up-and-down spaceship shoot-em-up game with different weapons and enemy types. Reminiscent of Galaga
+	Technical Hurdles:
+	-Enemy variation
+	-Different weapons with different effects
+	-Player/ship equipment
