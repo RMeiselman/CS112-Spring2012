@@ -1,6 +1,7 @@
 import pygame
 
-from game import Game
+from app import Application
+from 
 
 def main():
     # initialize pygame

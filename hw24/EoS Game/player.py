@@ -1,7 +1,3 @@
-"""
-player.py
-
-"""
 import math
 
 import pygame
@@ -14,23 +10,19 @@ from anim import Animation
 DIAG = 1 / math.sqrt(2)
 
 class PlayerAnimation(Animation):
-    _rows = {(0,1): 0,
-             (-1,0): 1,
-             (1,0): 2,
-             (0,-1): 3,
-             (-1,1): 4,
-             (-1,-1): 5,
-             (1,1): 6,
-             (1,-1): 7,}
+    _rows = {(-1,0): 0,
+             (1,0): 1,
+             (0,-1): 2,
+             (0,1): 3}
 
     def __init__(self, player, image, duration):
         self.player = player
         self.y = self._rows[(0,1)]
-        spritesheet = SpriteSheet(image, (3,8))    #####(3,8) is size of spritesheet
+        spritesheet = SpriteSheet(image, (3,4))    
         frames = [ (duration, 0),
                    (duration, 1),
                    (duration, 2),
-                   (duration, 1), ]
+                   (duration, 3), ]
         Animation.__init__(self, spritesheet, frames)
 
     def update(self, dt):
@@ -48,7 +40,7 @@ class PlayerAnimation(Animation):
             self.time += dt
             self.x = self.get_frame_data(self.time)
             self.y = self._rows[(vx,vy)]
-        
+
 class Player(Sprite):
     speed = 300
 
@@ -57,7 +49,7 @@ class Player(Sprite):
         self.vx = 0
         self.vy = 0
 
-        self.anim = PlayerAnimation(self, "mario", 60)
+        self.anim = PlayerAnimation(self, "pye_sprite_sheet_FLATTENED", 60)
         self.image = self.anim.get_current_frame()
         self.rect = self.image.get_rect()
 

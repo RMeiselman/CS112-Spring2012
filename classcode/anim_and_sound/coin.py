@@ -2,26 +2,46 @@ from random import randrange
 
 from pygame import Surface
 from pygame.sprite import Sprite, Group
+from anim import Animation, AnimationFrames
+from spritesheet import SpriteSheet
 
+COIN_FRAMES = None
+COIN_SPRITES = None
+
+class CoinAnimation(Animation):
+    duration = 25
+    
+    def __init__(self):
+        global COIN_FRAMES, COIN_SPRITES
+
+        if COIN_FRAMES is None:
+            COIN_FRAMES = AnimationFrames([
+                    (self.duration, (0,0)),
+                    (self.duration, (1,0)),
+                    (self.duration, (2,0)),
+                    (self.duration, (3,0)),
+                    (self.duration, (4,0)),
+                    (self.duration, (5,0)),
+                    (self.duration, (6,0)),
+                    (self.duration, (7,0))
+                    ])
+        if COIN_SPRITES is None:
+            COIN_SPRITES = SpriteSheet("coin", (8,1))
+
+        Animation.__init__(self, COIN_SPRITES, COIN_FRAMES)
 
 ## Coin
 class Coin(Sprite):
     def __init__(self, loc):
         Sprite.__init__(self)
-
-        self.image = self.create_image()
+        self.anim = CoinAnimation()
+        self.image = self.anim.get_current_frame()
         self.rect = self.image.get_rect()
         self.rect.center = loc
 
-    def create_image(self):
-        image = Surface((15, 15))
-        rect = image.get_rect()
-        image.fill((0,0,0), rect)
-        image.fill((255,255,0), rect.inflate(-2,-2))
-        return image
-
     def update(self, dt):
-        pass
+        self.anim.update(dt)
+        self.image = self.anim.get_current_frame()
 
 class CoinGroup(Group):
     spawn_rate = 1000   # ms

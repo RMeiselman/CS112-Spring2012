@@ -9,7 +9,7 @@ import pygame
 from pygame import Rect, Surface
 from pygame.sprite import Group, spritecollide
 
-from resource import load_image, play_song
+from resource import load_image, play_song, load_sfx
 
 from player import Player
 from coin import CoinGroup
@@ -21,6 +21,7 @@ class Level(object):
     def __init__(self, size):
         self.bounds = Rect((0,0), size)
         self.bg_tile = load_image("grass")
+        self.coin_sfx = load_sfx("coin")
 
     def draw_background(self, surf):
         tw, th = self.bg_tile.get_size()
@@ -51,7 +52,11 @@ class Level(object):
         self.player.rect.clamp_ip(self.bounds)
 
         # collide player with coins
-        spritecollide(self.player, self.coins, True)
+        if spritecollide(self.player, self.coins, True):
+            self.coin_sfx.stop()
+            self.coin_sfx.play()
+
+        
 
     def draw(self, surf):
         self.draw_background(surf)
